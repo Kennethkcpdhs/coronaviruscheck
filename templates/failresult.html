@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Health Result{% endblock %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+{% block content %}
+<style>
+* {box-sizing: border-box}
+
+.container {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.healthreport {width: {{ percentage }}%; background-color: #f44336;}
+
+</style>
+
+  <div class="jumbotron text-center">
+    <p>Auto generated report</p>
+    <div class="container">
+      <div class="skills healthreport">{{ percentage }}%</div>
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+      You have a high {{ percentage }} % chance of suffering from the 2019 nCOV Virus as of now. These values are for illustrative purposes only.
+    </div>
+  </div>
+{% endblock %}

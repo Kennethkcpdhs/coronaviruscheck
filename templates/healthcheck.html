@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Health Check{% endblock %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+{% block content %}
+<div class="container-fluid text-center">
+  <br>
+  <!-- Signs and Symptoms-->
+  <div class="container">
+    <form action="/result" method="post">
+    <h2>Your health conditions</h2><br>
+    <div class="card">
+      <div class="card-header">Temperature</div>
+      <div class="card-body">
+        <h4>Your Temperature is <span id="currtemp"></span>'C (degrees celsius)</h4>
+        <!--input id="temperatures" type="range" min="34" max="41" value="36.5" class="slider" step='0.1'-->
+        <input id="temperatures" name="usertemp" type="range" class="custom-range" min="34" max="41" step="0.1" value="34">
+        <script>
+          document.querySelector("h4").style.color = '#66b3ff';
+          var slider = document.getElementById("temperatures");
+          var output = document.getElementById("currtemp");
+          output.innerHTML = slider.value;
+
+          slider.oninput = function() {
+            output.innerHTML = this.value; // this refers to slider
+            if (slider.value<=38.5 && slider.value>=37.5){
+              document.querySelector("h4").style.color = '#ff0000';
+              document.querySelector("h4").style.fontWeight = "800";
+            }
+            else if (slider.value > 38.5){
+              document.querySelector("h4").style.color = '#cc0000';
+              document.querySelector("h4").style.fontWeight = "900";
+            }
+            else if (slider.value < 35.5){
+              document.querySelector("h4").style.color = '#66b3ff';
+              document.querySelector("h4").style.fontWeight = "600";
+            }
+            else {
+              document.querySelector("h4").style.color = '#ff668c';
+              document.querySelector("h4").style.fontWeight = "700";
+            }
+          }
+        </script></div>
+      </div>
+      <!-- Otherfactors -->
+      <div class="card">
+        <div class="card-header">Other Local Signs</div>
+        <div class="card-body"><input type="checkbox" name="sneeze" value="1.15">Sneezing</div>
+        <div class="card-body"><input type="checkbox" name="cough" value="1.1">Coughing</div>
+        <div class="card-body"><input type="checkbox" name="fatigue" value="1.05">Fatigue</div>
+        <div class="card-body"><input type="checkbox" name="breath" value="1.2"> Shortness of Breath/ Difficulty Breathing</div>
+      </div>
+      <div class="card">
+        <div class="card-header">Other Foreign Factors</div>
+        <div class="card-body"><input type="checkbox" name="friend" value="1.05"> Friends who were coughing and sneezing</div>
+        <div class="card-body"><input type="checkbox" name="crowded" value="1.03"> Visited a Crowded Area</div>
+        <div class="card-body"><input type="checkbox" name="large" value="1.05"> Part of a large organization at work; eg. Schools/ Multi-national Company</div>
+        <div class="card-body"><input type="checkbox" name="overseas" value="1.08"> Went Overseas</div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="spinner-border text-success" role="status">
+          </div>
+          <div class="card-body"><button type="submit" class="btn btn-primary">Let's Check</button></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
