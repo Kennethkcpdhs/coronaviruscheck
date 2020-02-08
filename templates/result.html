@@ -2,7 +2,6 @@
 {% block title %}Health Result{% endblock %}
 {% block head %}
     {{ super() }}
-
 {% endblock %}
 {% block content %}
 <style>
@@ -30,7 +29,13 @@
       <div class="skills healthreport">{{ percentage }}%</div>
     </div>
     <div class="alert alert-success">
-      You have a {{ percentage }} % chance of suffering from the 2019 nCOV Virus as of now. These values are for illustrative purposes only.
+      You have a <strong> {{ percentage }} % chance of suffering </strong> from the 2019 nCOV Virus as of now.
+      These values are for illustrative purposes only.
+    </div>
+    <br>
+
+    <div class="container">
+      <img src="https://www.prudential.com.sg/-/media/prudential/campaigns/coronavirus/mask-advisory-eng-25-jan-2020.ashx?la=en&hash=D936AE03D6796517F07C07A7749F09EB3D628273F431F014B75BBFD6092C4037" class="img-thumbnail mx-auto d-block" alt="Cinque Terre" width="576" height="1024">
     </div>
   </div>
 {% endblock %}

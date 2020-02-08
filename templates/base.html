@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     {% endblock %}
+    <!--body oncontextmenu="return false;"--> <!--Can be used to disable rightclick -->
 </head>
 <body>
     <div id="content">
@@ -31,6 +32,7 @@
       {% block content %}
       {% endblock %}
     </div>
+
     <footer class="container-fluid text-center">
       {% block footer %}
       Open Source Information. 2020 DHS.
